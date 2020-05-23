@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BlazorServer.Model;
 using BlazorServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -31,7 +33,13 @@ namespace BlazorServer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddAutoMapper(typeof(EmployeeProfile));
             services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44341/");
+            });
+
+            services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
             {
                 client.BaseAddress = new Uri("https://localhost:44341/");
             });
