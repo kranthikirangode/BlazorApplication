@@ -36,6 +36,11 @@ namespace BlazorServer.Pages
             Employees = (await EmployeeService.GetEmployees()).ToList();
         }
 
+        protected async Task EmployeeDeleted()
+        {
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+        }
+
         //private void LoadEmployees()
         //{
 
@@ -150,6 +155,6 @@ namespace BlazorServer.Pages
 
         //    Employees = new List<Employee> { e1, e2, e3,e4, e5,e6};
         //}
-    
+
     }
 }

@@ -36,12 +36,12 @@ namespace BlazorServer
             services.AddAutoMapper(typeof(EmployeeProfile));
             services.AddHttpClient<IEmployeeService, EmployeeService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44341/");
+                client.BaseAddress = new Uri("http://localhost:56717/");
             });
 
             services.AddHttpClient<IDepartmentService, DepartmentService>(client =>
             {
-                client.BaseAddress = new Uri("https://localhost:44341/");
+                client.BaseAddress = new Uri("http://localhost:56717");
             });
 
         }
